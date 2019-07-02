@@ -1,0 +1,22 @@
+<div class="d-flex pt-5 align-items-center justify-content-center">
+  <div class="row">
+    <div class="card text-center">
+      <div class="card-header" [ngStyle]="{ color: number < 4 ? 'blue' : '#000' }" [ngClass]="{'new-bg': number > 8}">
+        {{ title }}
+      </div>
+      <div class="card-body flex-column">
+        <h5 class="card-title">{{ number }}</h5>
+        <div *ngIf="number > 6; else menor" class="alert alert-danger" role="alert">
+          O numero é maior que 6;
+        </div>
+        <ng-template #menor>
+          <div class="alert alert-success">
+            O numero é menor que 6;
+          </div>
+        </ng-template>
+        <a href="#" (click)="diminuiNumero()" class="btn btn-danger">Diminuir</a>
+        <a href="#" (click)="aumentaNumero()" class="btn btn-success">Aumentar</a>
+      </div>
+    </div>
+  </div>
+</div>
